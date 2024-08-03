@@ -3,7 +3,7 @@ This file contains all the application functions
 """
 from django.http import HttpResponse
 from .models import Question
-from django.template import loader
+from django.shortcuts import render
 # Create your views here.
 
 
@@ -11,10 +11,9 @@ def index(request) -> HttpResponse:
     """
         Polls Index Funtions
     """
-    tempalte = loader.get_template("polls/index.html")
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
-    return HttpResponse(tempalte.render(context, request))
+    return render(request, 'polls/index.html', context)
 
 
 def detail(request, question_id):
