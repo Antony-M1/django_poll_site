@@ -4,7 +4,7 @@ This file contains the application URL's
 from django.urls import path
 from . import views
 
-
+app_name = 'polls'
 urlpatterns = [
     path("", views.index, name="index"),
     # ex: /polls/
