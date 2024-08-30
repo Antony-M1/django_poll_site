@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Question, Choice
 
+admin.site.site_header = "Polls Administration"
+admin.site.site_title = "Your Admin Title"
+admin.site.index_title = "Welcome to Your Admin Panel"
 
 admin.site.register(Choice)
 
