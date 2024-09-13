@@ -81,7 +81,7 @@ class EmployeeProfile(models.Model):
     bio = models.TextField()
 
     def __str__(self) -> str:
-        return self.employee
+        return str(self.employee)
 
     class Meta:
         db_table = "EmployeeProfile"
