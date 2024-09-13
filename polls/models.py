@@ -37,6 +37,11 @@ class Department(models.Model):
     def __str__(self) -> str:
         return self.name
 
+    class Meta:
+        db_table = "Department"
+        verbose_name = "Department"
+        verbose_name_plural = "Departments"
+
 
 class Employee(models.Model):
     first_name = models.CharField(max_length=50)
@@ -51,3 +56,8 @@ class Employee(models.Model):
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
+
+    class Meta:
+        db_table = 'Employee'
+        verbose_name = "Employee"
+        verbose_name_plural = "Employees"
