@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Question, Choice
+from .models import (
+    Question,
+    Choice,
+    Department,
+    Employee
+)
 
 admin.site.site_header = "Polls Administration"
 admin.site.site_title = "Your Admin Title"
@@ -25,3 +30,17 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Question, QuestionAdmin)
+
+
+class DepartmentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'location']
+
+
+admin.site.register(Department, DepartmentAdmin)
+
+
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name', 'email']
+
+
+admin.site.register(Employee, EmployeeAdmin)
