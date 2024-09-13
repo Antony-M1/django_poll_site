@@ -4,7 +4,8 @@ from .models import (
     Choice,
     Department,
     Employee,
-    Project
+    Project,
+    EmployeeProfile
 )
 
 admin.site.site_header = "Polls Administration"
@@ -52,3 +53,10 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Project, ProjectAdmin)
+
+
+class EmployeeProfileAdmin(admin.ModelAdmin):
+    list_display = ['employee', 'bio']
+
+
+admin.site.register(EmployeeProfile, EmployeeProfileAdmin)
