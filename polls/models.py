@@ -74,3 +74,16 @@ class Project(models.Model):
         db_table = "Project"
         verbose_name = "Project"
         verbose_name_plural = "Projects"
+
+
+class EmployeeProfile(models.Model):
+    employee = models.OneToOneField(Employee, on_delete=models.CASCADE)
+    bio = models.TextField()
+
+    def __str__(self) -> str:
+        return str(self.employee)
+
+    class Meta:
+        db_table = "EmployeeProfile"
+        verbose_name = "Employee Profile"
+        verbose_name_plural = "Employee Profiles"
