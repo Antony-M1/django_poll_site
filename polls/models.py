@@ -28,3 +28,36 @@ class Choice(models.Model):
 
     def __str__(self) -> str:
         return self.choice_text
+
+
+class Department(models.Model):
+    name = models.CharField(max_length=100)
+    location = models.CharField(max_length=150)
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        db_table = "Department"
+        verbose_name = "Department"
+        verbose_name_plural = "Departments"
+
+
+class Employee(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    hire_date = models.DateField()
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.CASCADE,
+        related_name='employees'
+    )
+
+    def __str__(self) -> str:
+        return f"{self.first_name} {self.last_name}"
+
+    class Meta:
+        db_table = 'Employee'
+        verbose_name = "Employee"
+        verbose_name_plural = "Employees"
