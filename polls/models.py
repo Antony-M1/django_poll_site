@@ -61,3 +61,16 @@ class Employee(models.Model):
         db_table = 'Employee'
         verbose_name = "Employee"
         verbose_name_plural = "Employees"
+
+
+class Project(models.Model):
+    name = models.CharField(max_length=150)
+    employees = models.ManyToManyField(Employee, related_name='projects')
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        db_table = "Project"
+        verbose_name = "Project"
+        verbose_name_plural = "Projects"
